@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
-import { Shield, Stethoscope, Eye, EyeOff, Users, Heart, GraduationCap, User as UserIcon } from 'lucide-react';
+import { Shield, Eye, EyeOff, Users, UserIcon, Heart } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 
 type LoginType = 'admin' | 'data-entry-operator';
@@ -77,9 +77,9 @@ const Login: React.FC = () => {
   const theme = getThemeColors();
 
   return (
-    <div className="min-h-screen flex">
+    <div className="min-h-screen flex bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700">
       {/* Left Section - Portal Details */}
-      <div className={`hidden lg:flex lg:w-1/2 bg-gradient-to-br ${theme.gradient} flex-col justify-center items-center p-12 relative overflow-hidden`}>
+      <div className="hidden lg:flex lg:w-1/2 flex-col justify-center items-center p-12 relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 left-10 w-20 h-20 border-2 border-white rounded-full"></div>
@@ -90,27 +90,18 @@ const Login: React.FC = () => {
 
         {/* Main Title - Centered */}
         <div className="text-center z-10">
-          <div className="flex justify-center mb-6">
-            {loginType === 'admin' ? (
-              <Shield className="h-16 w-16 text-white" />
-            ) : (
-              <UserIcon className="h-16 w-16 text-white" />
-            )}
+          <div className="flex justify-center mb-8">
+            <Shield className="h-20 w-20 text-white" />
           </div>
-          <h1 className="text-5xl font-bold text-white mb-6 fade-in">
-            Medi Guru
+          <h1 className="text-6xl font-bold text-white mb-6 fade-in">
+            एडमिन पोर्टल
           </h1>
-          <p className="text-xl text-white/90 max-w-lg leading-relaxed mx-auto">
-            Virtual Medical Training & Monitoring Portal<br />
-            {loginType === 'admin' 
-              ? 'Complete health training management system' 
-              : 'Data entry and file management system'
-            }
+          <p className="text-xl text-white/90 max-w-lg leading-relaxed mx-auto mb-4">
+            छांव स्वास्थ्य शिविर प्रबंधन प्रणाली
           </p>
-          <div className="mt-8 text-white/80">
-            <p className="text-sm">District Administration, Raipur</p>
-            <p className="text-sm">Health & Family Welfare Department, CG</p>
-          </div>
+          <p className="text-lg text-white/80 max-w-lg leading-relaxed mx-auto">
+            स्वास्थ्य शिविरों का संपूर्ण प्रबंधन
+          </p>
         </div>
       </div>
 
@@ -122,10 +113,10 @@ const Login: React.FC = () => {
             <div className="text-center lg:hidden mb-6">
               <div className="flex justify-center">
                 <div className="flex items-center space-x-2">
-                  <GraduationCap className="h-10 w-10 text-blue-600" />
+                  <Shield className="h-10 w-10 text-blue-600" />
                   <div>
-                    <h1 className="text-2xl font-bold text-gray-800">Medi Guru</h1>
-                    <p className="text-xs text-gray-600">Medical Training Portal</p>
+                    <h1 className="text-2xl font-bold text-gray-800">एडमिन पोर्टल</h1>
+                    <p className="text-xs text-gray-600">छांव स्वास्थ्य शिविर</p>
                   </div>
                 </div>
               </div>
@@ -133,54 +124,54 @@ const Login: React.FC = () => {
 
             {/* Login Type Selection */}
             <div className="mb-6">
-              <div className="grid grid-cols-2 gap-2 p-1 bg-gray-200 rounded-lg">
+              <div className="grid grid-cols-2 gap-2 p-1 bg-gray-200 rounded-xl">
                 <button
                   type="button"
                   onClick={() => setLoginType('admin')}
-                  className={`flex items-center justify-center px-4 py-3 text-sm font-medium rounded-md transition-all duration-200 ${
+                  className={`flex items-center justify-center px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 ${
                     loginType === 'admin'
                       ? 'bg-white text-blue-600 shadow-sm'
                       : 'text-gray-600 hover:text-gray-900'
                   }`}
                 >
-                  <Shield className="h-4 w-4 mr-2" />
-                  Admin Login
+                  <Users className="h-4 w-4 mr-2" />
+                  एडमिन लॉगिन
                 </button>
                 <button
                   type="button"
                   onClick={() => setLoginType('data-entry-operator')}
-                  className={`flex items-center justify-center px-4 py-3 text-sm font-medium rounded-md transition-all duration-200 ${
+                  className={`flex items-center justify-center px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 ${
                     loginType === 'data-entry-operator'
                       ? 'bg-white text-purple-600 shadow-sm'
                       : 'text-gray-600 hover:text-gray-900'
                   }`}
                 >
-                  <UserIcon className="h-4 w-4 mr-2" />
-                  Data Entry Login
+                  <Heart className="h-4 w-4 mr-2" />
+                  डॉक्टर लॉगिन
                 </button>
               </div>
             </div>
 
             {/* Login Header */}
             <div className="text-center mb-6">
-              <h2 className="text-xl font-semibold text-gray-900">
-                {loginType === 'admin' ? 'Admin Login' : 'Data Entry Login'}
+              <h2 className="text-2xl font-bold text-gray-900">
+                {loginType === 'admin' ? 'एडमिन लॉगिन' : 'डॉक्टर लॉगिन'}
               </h2>
-              <p className="mt-1 text-sm text-gray-600">
+              <p className="mt-2 text-sm text-gray-600">
                 {loginType === 'admin' 
-                  ? 'Manage training sessions and view analytics'
-                  : 'Upload meeting data and manage files'
+                  ? 'शिविर प्रबंधन के लिए लॉगिन करें'
+                  : 'स्वास्थ्य शिविर प्रबंधन के लिए लॉगिन करें'
                 }
               </p>
             </div>
 
             {/* Login Form */}
-            <div className="bg-white rounded-2xl shadow-xl p-6 border border-gray-200">
-              <form className="space-y-4" onSubmit={handleSubmit}>
+            <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-200">
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 {/* Email */}
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email Address / User ID
+                    {loginType === 'admin' ? 'ईमेल पता / यूजर आईडी' : 'ईमेल पता / डॉक्टर आईडी'}
                   </label>
                   <div className="relative">
                     <input
@@ -190,16 +181,16 @@ const Login: React.FC = () => {
                       autoComplete="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className={`w-full px-4 py-3 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all ${
+                      className={`w-full px-4 py-3 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-gray-900 placeholder-gray-500 ${
                         errors.email ? 'border-red-500 focus:ring-red-500' : ''
                       }`}
-                      placeholder="Enter your email address"
+                      placeholder="अपना ईमेल दर्ज करें"
                     />
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                       {loginType === 'admin' ? (
-                        <Shield className="h-4 w-4 text-gray-400" />
+                        <Shield className="h-5 w-5 text-gray-400" />
                       ) : (
-                        <UserIcon className="h-4 w-4 text-gray-400" />
+                        <Heart className="h-5 w-5 text-gray-400" />
                       )}
                     </div>
                   </div>
@@ -211,7 +202,7 @@ const Login: React.FC = () => {
                 {/* Password */}
                 <div>
                   <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
-                    Password
+                    पासवर्ड
                   </label>
                   <div className="relative">
                     <input
@@ -221,13 +212,13 @@ const Login: React.FC = () => {
                       autoComplete="current-password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      className={`w-full px-4 py-3 pl-10 pr-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all ${
+                      className={`w-full px-4 py-3 pl-10 pr-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-gray-900 placeholder-gray-500 ${
                         errors.password ? 'border-red-500 focus:ring-red-500' : ''
                       }`}
-                      placeholder="Enter your password"
+                      placeholder="अपना पासवर्ड लिखें"
                     />
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <span className="text-gray-400 text-sm">🔒</span>
+                      <span className="text-gray-400 text-lg">🔒</span>
                     </div>
                     <button
                       type="button"
@@ -235,9 +226,9 @@ const Login: React.FC = () => {
                       onClick={() => setShowPassword(!showPassword)}
                     >
                       {showPassword ? (
-                        <EyeOff className="h-4 w-4 text-gray-400" />
+                        <EyeOff className="h-5 w-5 text-gray-400" />
                       ) : (
-                        <Eye className="h-4 w-4 text-gray-400" />
+                        <Eye className="h-5 w-5 text-gray-400" />
                       )}
                     </button>
                   </div>
@@ -258,11 +249,11 @@ const Login: React.FC = () => {
                       className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                     />
                     <label htmlFor="remember-me" className="ml-2 text-gray-600">
-                      Remember me
+                      मुझे याद रखें (30 दिन)
                     </label>
                   </div>
-                  <a href="#" className={`${theme.text} ${theme.textHover} font-medium`}>
-                    Forgot password?
+                  <a href="#" className="text-blue-600 hover:text-blue-500 font-medium">
+                    पासवर्ड भूल गए?
                   </a>
                 </div>
 
@@ -270,49 +261,37 @@ const Login: React.FC = () => {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className={`w-full ${theme.primary} text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 ${
+                  className={`w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-2 ${
                     isLoading ? 'opacity-75 cursor-not-allowed' : ''
                   }`}
                 >
                   {isLoading ? (
                     <div className="flex items-center justify-center">
                       <div className="spinner mr-3"></div>
-                      Signing in...
+                      लॉगिन हो रहा है...
                     </div>
                   ) : (
                     <div className="flex items-center justify-center">
-                      {loginType === 'admin' ? (
-                        <Shield className="mr-2 h-4 w-4" />
-                      ) : (
-                        <UserIcon className="mr-2 h-4 w-4" />
-                      )}
-                      Sign In
+                      <span className="mr-2">🔐</span>
+                      लॉगिन करें
                     </div>
                   )}
                 </button>
               </form>
-
-              {/* Demo Credentials */}
-              <div className="mt-6 p-4 bg-gray-50 rounded-lg">
-                <h3 className="font-medium text-gray-800 mb-2">Demo Credentials:</h3>
-                <div className="text-sm text-gray-600 space-y-1">
-                  <div>• Admin: admin@raipur.gov.in</div>
-                  <div>• Data Entry: dataentry@raipur.gov.in</div>
-                </div>
-              </div>
             </div>
 
             {/* Security Note */}
-            <div className="text-center mt-4">
-              <p className="text-xs text-gray-500">
-                🔒 This is a secure {loginType === 'admin' ? 'administrative' : 'data entry'} portal
+            <div className="text-center mt-6">
+              <p className="text-xs text-gray-500 flex items-center justify-center">
+                <span className="mr-1">🔒</span>
+                यह एक सुरक्षित {loginType === 'admin' ? 'प्रशासनिक' : 'चिकित्सा'} पोर्टल है
               </p>
             </div>
 
             {/* Footer */}
-            <div className="text-center mt-6">
+            <div className="text-center mt-4">
               <p className="text-xs text-gray-500">
-                © 2025 CMHO Office, Raipur. All rights reserved.
+                Powered by <span className="font-semibold">SSIPMT, Raipur</span>
               </p>
             </div>
           </div>

@@ -1,3 +1,6 @@
+/* Import Hindi Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
 /* Global Styles */
 * {
   margin: 0;
@@ -6,12 +9,12 @@
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Noto Sans Devanagari', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 50%, #1e40af 100%);
   min-height: 100vh;
 }
 
@@ -338,4 +341,108 @@ body {
 
 .focus\:border-transparent:focus {
   border-color: transparent;
+}
+
+/* Hindi Login Specific Styles */
+.hindi-login {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+}
+
+.hindi-login .login-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hindi-login .login-subtitle {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.hindi-login .form-label {
+  font-weight: 500;
+  color: #374151;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.hindi-login .form-input {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-size: 1rem;
+  padding: 0.875rem 1rem;
+  border-radius: 0.5rem;
+  border: 2px solid #d1d5db;
+  transition: all 0.2s ease;
+}
+
+.hindi-login .form-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  outline: none;
+}
+
+.hindi-login .login-button {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  border: none;
+  padding: 0.875rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: white;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
+}
+
+.hindi-login .login-button:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 8px -1px rgba(59, 130, 246, 0.4);
+}
+
+.hindi-login .tab-button {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.hindi-login .tab-button.active {
+  background: white;
+  color: #3b82f6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Background Pattern Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(180deg);
+  }
+}
+
+.floating-circle {
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating-circle:nth-child(2) {
+  animation-delay: -2s;
+}
+
+.floating-circle:nth-child(3) {
+  animation-delay: -4s;
+}
+
+/* Enhanced Glass Effect */
+.glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
